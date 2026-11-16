@@ -1,0 +1,11 @@
+{
+  "name": "test-video-chromawaveform",
+  "version": "1.0.0",
+  "description": "Chroma Waveform & Saturation Monitor softapp for APK.audio",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "author": "Anthony Kuzub",
+  "license": "MIT"
+}

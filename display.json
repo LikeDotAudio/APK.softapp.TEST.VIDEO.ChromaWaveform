@@ -1,0 +1,10 @@
+{
+  "name": "Chroma Waveform & Saturation Monitor",
+  "icon": "\ud83c\udf08",
+  "group": "Test & Measurement",
+  "subGroup": "Video Scopes",
+  "description": "Chrominance saturation waveform monitor displaying saturation amplitude (0-100% SAT) across the horizontal image raster.",
+  "app": "APK:Softapps/TEST/TEST.VIDEO.ChromaWaveform/index.html",
+  "topic": "APK.audio/Test/ChromaWaveform",
+  "autostart": false
+}

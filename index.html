@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chroma Waveform & Saturation Monitor · APK.audio Softapp</title>
+  <style>
+    :root {
+      --bg: #03060f;
+      --card-bg: #0a1326;
+      --border: #1d2942;
+      --accent: #6FC8F0;
+      --text: #cfe6ff;
+      --dim: #7d93b3;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: radial-gradient(circle at 50% 20%, #0d1730, var(--bg) 85%);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 100vh;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+    .title-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .icon { font-size: 20px; }
+    h1 { font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); }
+    .badge {
+      font-size: 10px;
+      background: #112240;
+      color: #79c0ff;
+      border: 1px solid var(--border);
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    button {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    button:hover { background: #16264c; border-color: var(--accent); }
+    button.active { background: #ffd400; color: #1a1206; border-color: #ffd400; }
+    .status { font-size: 11px; color: var(--dim); margin-left: auto; font-family: monospace; }
+    .canvas-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: #02040a;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+      min-height: 320px;
+    }
+    canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .stats-bar {
+      display: flex;
+      gap: 16px;
+      padding: 8px 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 11px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title-group">
+      <span class="icon">🌈</span>
+      <h1>Chroma Waveform & Saturation Monitor</h1>
+      <span class="badge">Video Scopes</span>
+    </div>
+    <span class="status" id="status">INIT · STANDBY</span>
+  </header>
+
+  <div class="toolbar">
+    <button id="btnPlay" class="active">▶ Generator</button>
+    <button id="btnMedia">⧉ Media Capture</button>
+    <button id="btnReset">↺ Reset</button>
+  </div>
+
+  <div class="canvas-container">
+    <canvas id="viewCanvas"></canvas>
+  </div>
+
+  <div class="stats-bar" id="stats">
+    <span>RATE: <b id="fps">60</b> fps</span>
+    <span>STATUS: <b id="statInfo">ACTIVE</b></span>
+    <span>TOPIC: <code>APK.audio/Test/ChromaWaveform</code></span>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
